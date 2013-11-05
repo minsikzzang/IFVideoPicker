@@ -16,6 +16,42 @@
 		A423AD9A1829330900B2AA2F /* libIFVideoPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AD821829330900B2AA2F /* libIFVideoPicker.a */; };
 		A423ADA01829330900B2AA2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A423AD9E1829330900B2AA2F /* InfoPlist.strings */; };
 		A423ADA21829330900B2AA2F /* IFVideoPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADA11829330900B2AA2F /* IFVideoPickerTests.m */; };
+		A423ADB11829337F00B2AA2F /* IFAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADAC1829337F00B2AA2F /* IFAudioEncoder.m */; };
+		A423ADB21829337F00B2AA2F /* IFAVAssetEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADAE1829337F00B2AA2F /* IFAVAssetEncoder.m */; };
+		A423ADB31829337F00B2AA2F /* IFVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB01829337F00B2AA2F /* IFVideoEncoder.m */; };
+		A423ADBD1829340100B2AA2F /* NSData+Bytes.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB61829340100B2AA2F /* NSData+Bytes.m */; };
+		A423ADBE1829340100B2AA2F /* NSData+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB81829340100B2AA2F /* NSData+Hex.m */; };
+		A423ADBF1829340100B2AA2F /* NSMutableData+AMF.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADBA1829340100B2AA2F /* NSMutableData+AMF.m */; };
+		A423ADC01829340100B2AA2F /* NSMutableData+Bytes.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADBC1829340100B2AA2F /* NSMutableData+Bytes.m */; };
+		A423ADCC1829342400B2AA2F /* MP4Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADC31829342400B2AA2F /* MP4Atom.m */; };
+		A423ADCD1829342400B2AA2F /* MP4Descriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADC51829342400B2AA2F /* MP4Descriptor.m */; };
+		A423ADCE1829342400B2AA2F /* MP4Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADC71829342400B2AA2F /* MP4Frame.m */; };
+		A423ADCF1829342400B2AA2F /* MP4Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADC91829342400B2AA2F /* MP4Reader.m */; };
+		A423ADD01829342400B2AA2F /* MP4Record.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADCB1829342400B2AA2F /* MP4Record.m */; };
+		A423ADD31829342C00B2AA2F /* IFBytesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADD21829342C00B2AA2F /* IFBytesData.m */; };
+		A423ADD71829345100B2AA2F /* NALUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADD61829345100B2AA2F /* NALUnit.m */; };
+		A423ADE51829348F00B2AA2F /* FLVAudioTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADDA1829348F00B2AA2F /* FLVAudioTag.m */; };
+		A423ADE61829348F00B2AA2F /* FLVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADDC1829348F00B2AA2F /* FLVHeader.m */; };
+		A423ADE71829348F00B2AA2F /* FLVMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADDE1829348F00B2AA2F /* FLVMetadata.m */; };
+		A423ADE81829348F00B2AA2F /* FLVTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADE01829348F00B2AA2F /* FLVTag.m */; };
+		A423ADE91829348F00B2AA2F /* FLVVideoTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADE21829348F00B2AA2F /* FLVVideoTag.m */; };
+		A423ADEA1829348F00B2AA2F /* FLVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADE41829348F00B2AA2F /* FLVWriter.m */; };
+		A423AE431829355800B2AA2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AD851829330900B2AA2F /* Foundation.framework */; };
+		A423AE451829355800B2AA2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE441829355800B2AA2F /* CoreGraphics.framework */; };
+		A423AE4C1829355800B2AA2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A423AE4A1829355800B2AA2F /* InfoPlist.strings */; };
+		A423AE4E1829355800B2AA2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AE4D1829355800B2AA2F /* main.m */; };
+		A423AE521829355800B2AA2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AE511829355800B2AA2F /* AppDelegate.m */; };
+		A423AE551829355800B2AA2F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A423AE531829355800B2AA2F /* Main_iPhone.storyboard */; };
+		A423AE581829355800B2AA2F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A423AE561829355800B2AA2F /* Main_iPad.storyboard */; };
+		A423AE5B1829355800B2AA2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AE5A1829355800B2AA2F /* ViewController.m */; };
+		A423AE5D1829355800B2AA2F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A423AE5C1829355800B2AA2F /* Images.xcassets */; };
+		A423AE631829355800B2AA2F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AD931829330900B2AA2F /* XCTest.framework */; };
+		A423AE641829355800B2AA2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AD851829330900B2AA2F /* Foundation.framework */; };
+		A423AE651829355800B2AA2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AD961829330900B2AA2F /* UIKit.framework */; };
+		A423AE76182937B000B2AA2F /* libIFVideoPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AD821829330900B2AA2F /* libIFVideoPicker.a */; };
+		A423AE78182937C800B2AA2F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE77182937C800B2AA2F /* AVFoundation.framework */; };
+		A423AE7B1829380300B2AA2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE79182937DD00B2AA2F /* UIKit.framework */; };
+		A423AE7D1829382400B2AA2F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE7C1829382400B2AA2F /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +61,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A423AD811829330900B2AA2F;
 			remoteInfo = IFVideoPicker;
+		};
+		A423AE661829355800B2AA2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A423AD7A1829330900B2AA2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A423AE411829355800B2AA2F;
+			remoteInfo = IFVideoPickerDemo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,6 +96,63 @@
 		A423AD9D1829330900B2AA2F /* IFVideoPickerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IFVideoPickerTests-Info.plist"; sourceTree = "<group>"; };
 		A423AD9F1829330900B2AA2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A423ADA11829330900B2AA2F /* IFVideoPickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFVideoPickerTests.m; sourceTree = "<group>"; };
+		A423ADAB1829337F00B2AA2F /* IFAudioEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAudioEncoder.h; sourceTree = "<group>"; };
+		A423ADAC1829337F00B2AA2F /* IFAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAudioEncoder.m; sourceTree = "<group>"; };
+		A423ADAD1829337F00B2AA2F /* IFAVAssetEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAVAssetEncoder.h; sourceTree = "<group>"; };
+		A423ADAE1829337F00B2AA2F /* IFAVAssetEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAVAssetEncoder.m; sourceTree = "<group>"; };
+		A423ADAF1829337F00B2AA2F /* IFVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFVideoEncoder.h; sourceTree = "<group>"; };
+		A423ADB01829337F00B2AA2F /* IFVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFVideoEncoder.m; sourceTree = "<group>"; };
+		A423ADB51829340100B2AA2F /* NSData+Bytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Bytes.h"; sourceTree = "<group>"; };
+		A423ADB61829340100B2AA2F /* NSData+Bytes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Bytes.m"; sourceTree = "<group>"; };
+		A423ADB71829340100B2AA2F /* NSData+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Hex.h"; sourceTree = "<group>"; };
+		A423ADB81829340100B2AA2F /* NSData+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hex.m"; sourceTree = "<group>"; };
+		A423ADB91829340100B2AA2F /* NSMutableData+AMF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+AMF.h"; sourceTree = "<group>"; };
+		A423ADBA1829340100B2AA2F /* NSMutableData+AMF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+AMF.m"; sourceTree = "<group>"; };
+		A423ADBB1829340100B2AA2F /* NSMutableData+Bytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Bytes.h"; sourceTree = "<group>"; };
+		A423ADBC1829340100B2AA2F /* NSMutableData+Bytes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Bytes.m"; sourceTree = "<group>"; };
+		A423ADC21829342400B2AA2F /* MP4Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Atom.h; sourceTree = "<group>"; };
+		A423ADC31829342400B2AA2F /* MP4Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Atom.m; sourceTree = "<group>"; };
+		A423ADC41829342400B2AA2F /* MP4Descriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Descriptor.h; sourceTree = "<group>"; };
+		A423ADC51829342400B2AA2F /* MP4Descriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Descriptor.m; sourceTree = "<group>"; };
+		A423ADC61829342400B2AA2F /* MP4Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Frame.h; sourceTree = "<group>"; };
+		A423ADC71829342400B2AA2F /* MP4Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Frame.m; sourceTree = "<group>"; };
+		A423ADC81829342400B2AA2F /* MP4Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Reader.h; sourceTree = "<group>"; };
+		A423ADC91829342400B2AA2F /* MP4Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Reader.m; sourceTree = "<group>"; };
+		A423ADCA1829342400B2AA2F /* MP4Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Record.h; sourceTree = "<group>"; };
+		A423ADCB1829342400B2AA2F /* MP4Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Record.m; sourceTree = "<group>"; };
+		A423ADD11829342C00B2AA2F /* IFBytesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFBytesData.h; sourceTree = "<group>"; };
+		A423ADD21829342C00B2AA2F /* IFBytesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBytesData.m; sourceTree = "<group>"; };
+		A423ADD51829345100B2AA2F /* NALUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALUnit.h; sourceTree = "<group>"; };
+		A423ADD61829345100B2AA2F /* NALUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NALUnit.m; sourceTree = "<group>"; };
+		A423ADD91829348F00B2AA2F /* FLVAudioTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVAudioTag.h; sourceTree = "<group>"; };
+		A423ADDA1829348F00B2AA2F /* FLVAudioTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVAudioTag.m; sourceTree = "<group>"; };
+		A423ADDB1829348F00B2AA2F /* FLVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVHeader.h; sourceTree = "<group>"; };
+		A423ADDC1829348F00B2AA2F /* FLVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVHeader.m; sourceTree = "<group>"; };
+		A423ADDD1829348F00B2AA2F /* FLVMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVMetadata.h; sourceTree = "<group>"; };
+		A423ADDE1829348F00B2AA2F /* FLVMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVMetadata.m; sourceTree = "<group>"; };
+		A423ADDF1829348F00B2AA2F /* FLVTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVTag.h; sourceTree = "<group>"; };
+		A423ADE01829348F00B2AA2F /* FLVTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVTag.m; sourceTree = "<group>"; };
+		A423ADE11829348F00B2AA2F /* FLVVideoTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVVideoTag.h; sourceTree = "<group>"; };
+		A423ADE21829348F00B2AA2F /* FLVVideoTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVVideoTag.m; sourceTree = "<group>"; };
+		A423ADE31829348F00B2AA2F /* FLVWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVWriter.h; sourceTree = "<group>"; };
+		A423ADE41829348F00B2AA2F /* FLVWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVWriter.m; sourceTree = "<group>"; };
+		A423AE421829355800B2AA2F /* IFVideoPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IFVideoPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A423AE441829355800B2AA2F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A423AE491829355800B2AA2F /* IFVideoPickerDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IFVideoPickerDemo-Info.plist"; sourceTree = "<group>"; };
+		A423AE4B1829355800B2AA2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A423AE4D1829355800B2AA2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A423AE4F1829355800B2AA2F /* IFVideoPickerDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IFVideoPickerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		A423AE501829355800B2AA2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A423AE511829355800B2AA2F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A423AE541829355800B2AA2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A423AE571829355800B2AA2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		A423AE591829355800B2AA2F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A423AE5A1829355800B2AA2F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A423AE5C1829355800B2AA2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A423AE621829355800B2AA2F /* IFVideoPickerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IFVideoPickerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A423AE77182937C800B2AA2F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A423AE79182937DD00B2AA2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A423AE7C1829382400B2AA2F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +175,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A423AE3F1829355800B2AA2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A423AE7D1829382400B2AA2F /* AssetsLibrary.framework in Frameworks */,
+				A423AE7B1829380300B2AA2F /* UIKit.framework in Frameworks */,
+				A423AE451829355800B2AA2F /* CoreGraphics.framework in Frameworks */,
+				A423AE78182937C800B2AA2F /* AVFoundation.framework in Frameworks */,
+				A423AE76182937B000B2AA2F /* libIFVideoPicker.a in Frameworks */,
+				A423AE431829355800B2AA2F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A423AE5F1829355800B2AA2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A423AE631829355800B2AA2F /* XCTest.framework in Frameworks */,
+				A423AE651829355800B2AA2F /* UIKit.framework in Frameworks */,
+				A423AE641829355800B2AA2F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +206,7 @@
 			children = (
 				A423AD871829330900B2AA2F /* IFVideoPicker */,
 				A423AD9B1829330900B2AA2F /* IFVideoPickerTests */,
+				A423AE471829355800B2AA2F /* IFVideoPickerDemo */,
 				A423AD841829330900B2AA2F /* Frameworks */,
 				A423AD831829330900B2AA2F /* Products */,
 			);
@@ -93,6 +217,8 @@
 			children = (
 				A423AD821829330900B2AA2F /* libIFVideoPicker.a */,
 				A423AD921829330900B2AA2F /* IFVideoPickerTests.xctest */,
+				A423AE421829355800B2AA2F /* IFVideoPickerDemo.app */,
+				A423AE621829355800B2AA2F /* IFVideoPickerDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,9 +226,13 @@
 		A423AD841829330900B2AA2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A423AE7C1829382400B2AA2F /* AssetsLibrary.framework */,
+				A423AE79182937DD00B2AA2F /* UIKit.framework */,
+				A423AE77182937C800B2AA2F /* AVFoundation.framework */,
 				A423AD851829330900B2AA2F /* Foundation.framework */,
 				A423AD931829330900B2AA2F /* XCTest.framework */,
 				A423AD961829330900B2AA2F /* UIKit.framework */,
+				A423AE441829355800B2AA2F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,6 +240,16 @@
 		A423AD871829330900B2AA2F /* IFVideoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				A423ADD81829347800B2AA2F /* FLV */,
+				A423ADD41829343B00B2AA2F /* H264 */,
+				A423ADC11829340C00B2AA2F /* MP4 */,
+				A423ADB4182933D500B2AA2F /* NSData */,
+				A423ADAB1829337F00B2AA2F /* IFAudioEncoder.h */,
+				A423ADAC1829337F00B2AA2F /* IFAudioEncoder.m */,
+				A423ADAD1829337F00B2AA2F /* IFAVAssetEncoder.h */,
+				A423ADAE1829337F00B2AA2F /* IFAVAssetEncoder.m */,
+				A423ADAF1829337F00B2AA2F /* IFVideoEncoder.h */,
+				A423ADB01829337F00B2AA2F /* IFVideoEncoder.m */,
 				A423AD8A1829330900B2AA2F /* IFVideoPicker.h */,
 				A423AD8C1829330900B2AA2F /* IFVideoPicker.m */,
 				A423AD881829330900B2AA2F /* Supporting Files */,
@@ -139,6 +279,94 @@
 			children = (
 				A423AD9D1829330900B2AA2F /* IFVideoPickerTests-Info.plist */,
 				A423AD9E1829330900B2AA2F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A423ADB4182933D500B2AA2F /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				A423ADD11829342C00B2AA2F /* IFBytesData.h */,
+				A423ADD21829342C00B2AA2F /* IFBytesData.m */,
+				A423ADB51829340100B2AA2F /* NSData+Bytes.h */,
+				A423ADB61829340100B2AA2F /* NSData+Bytes.m */,
+				A423ADB71829340100B2AA2F /* NSData+Hex.h */,
+				A423ADB81829340100B2AA2F /* NSData+Hex.m */,
+				A423ADB91829340100B2AA2F /* NSMutableData+AMF.h */,
+				A423ADBA1829340100B2AA2F /* NSMutableData+AMF.m */,
+				A423ADBB1829340100B2AA2F /* NSMutableData+Bytes.h */,
+				A423ADBC1829340100B2AA2F /* NSMutableData+Bytes.m */,
+			);
+			name = NSData;
+			sourceTree = "<group>";
+		};
+		A423ADC11829340C00B2AA2F /* MP4 */ = {
+			isa = PBXGroup;
+			children = (
+				A423ADC21829342400B2AA2F /* MP4Atom.h */,
+				A423ADC31829342400B2AA2F /* MP4Atom.m */,
+				A423ADC41829342400B2AA2F /* MP4Descriptor.h */,
+				A423ADC51829342400B2AA2F /* MP4Descriptor.m */,
+				A423ADC61829342400B2AA2F /* MP4Frame.h */,
+				A423ADC71829342400B2AA2F /* MP4Frame.m */,
+				A423ADC81829342400B2AA2F /* MP4Reader.h */,
+				A423ADC91829342400B2AA2F /* MP4Reader.m */,
+				A423ADCA1829342400B2AA2F /* MP4Record.h */,
+				A423ADCB1829342400B2AA2F /* MP4Record.m */,
+			);
+			name = MP4;
+			sourceTree = "<group>";
+		};
+		A423ADD41829343B00B2AA2F /* H264 */ = {
+			isa = PBXGroup;
+			children = (
+				A423ADD51829345100B2AA2F /* NALUnit.h */,
+				A423ADD61829345100B2AA2F /* NALUnit.m */,
+			);
+			name = H264;
+			sourceTree = "<group>";
+		};
+		A423ADD81829347800B2AA2F /* FLV */ = {
+			isa = PBXGroup;
+			children = (
+				A423ADD91829348F00B2AA2F /* FLVAudioTag.h */,
+				A423ADDA1829348F00B2AA2F /* FLVAudioTag.m */,
+				A423ADDB1829348F00B2AA2F /* FLVHeader.h */,
+				A423ADDC1829348F00B2AA2F /* FLVHeader.m */,
+				A423ADDD1829348F00B2AA2F /* FLVMetadata.h */,
+				A423ADDE1829348F00B2AA2F /* FLVMetadata.m */,
+				A423ADDF1829348F00B2AA2F /* FLVTag.h */,
+				A423ADE01829348F00B2AA2F /* FLVTag.m */,
+				A423ADE11829348F00B2AA2F /* FLVVideoTag.h */,
+				A423ADE21829348F00B2AA2F /* FLVVideoTag.m */,
+				A423ADE31829348F00B2AA2F /* FLVWriter.h */,
+				A423ADE41829348F00B2AA2F /* FLVWriter.m */,
+			);
+			name = FLV;
+			sourceTree = "<group>";
+		};
+		A423AE471829355800B2AA2F /* IFVideoPickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A423AE501829355800B2AA2F /* AppDelegate.h */,
+				A423AE511829355800B2AA2F /* AppDelegate.m */,
+				A423AE531829355800B2AA2F /* Main_iPhone.storyboard */,
+				A423AE561829355800B2AA2F /* Main_iPad.storyboard */,
+				A423AE591829355800B2AA2F /* ViewController.h */,
+				A423AE5A1829355800B2AA2F /* ViewController.m */,
+				A423AE5C1829355800B2AA2F /* Images.xcassets */,
+				A423AE481829355800B2AA2F /* Supporting Files */,
+			);
+			path = IFVideoPickerDemo;
+			sourceTree = "<group>";
+		};
+		A423AE481829355800B2AA2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A423AE491829355800B2AA2F /* IFVideoPickerDemo-Info.plist */,
+				A423AE4A1829355800B2AA2F /* InfoPlist.strings */,
+				A423AE4D1829355800B2AA2F /* main.m */,
+				A423AE4F1829355800B2AA2F /* IFVideoPickerDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -181,6 +409,41 @@
 			productReference = A423AD921829330900B2AA2F /* IFVideoPickerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A423AE411829355800B2AA2F /* IFVideoPickerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A423AE701829355800B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerDemo" */;
+			buildPhases = (
+				A423AE3E1829355800B2AA2F /* Sources */,
+				A423AE3F1829355800B2AA2F /* Frameworks */,
+				A423AE401829355800B2AA2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IFVideoPickerDemo;
+			productName = IFVideoPickerDemo;
+			productReference = A423AE421829355800B2AA2F /* IFVideoPickerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A423AE611829355800B2AA2F /* IFVideoPickerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A423AE731829355800B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerDemoTests" */;
+			buildPhases = (
+				A423AE5E1829355800B2AA2F /* Sources */,
+				A423AE5F1829355800B2AA2F /* Frameworks */,
+				A423AE601829355800B2AA2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A423AE671829355800B2AA2F /* PBXTargetDependency */,
+			);
+			name = IFVideoPickerDemoTests;
+			productName = IFVideoPickerDemoTests;
+			productReference = A423AE621829355800B2AA2F /* IFVideoPickerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,6 +452,14 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "iFactory Lab Limited";
+				TargetAttributes = {
+					A423AD911829330900B2AA2F = {
+						TestTargetID = A423AE411829355800B2AA2F;
+					};
+					A423AE611829355800B2AA2F = {
+						TestTargetID = A423AE411829355800B2AA2F;
+					};
+				};
 			};
 			buildConfigurationList = A423AD7D1829330900B2AA2F /* Build configuration list for PBXProject "IFVideoPicker" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -196,6 +467,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A423AD791829330900B2AA2F;
 			productRefGroup = A423AD831829330900B2AA2F /* Products */;
@@ -204,6 +476,8 @@
 			targets = (
 				A423AD811829330900B2AA2F /* IFVideoPicker */,
 				A423AD911829330900B2AA2F /* IFVideoPickerTests */,
+				A423AE411829355800B2AA2F /* IFVideoPickerDemo */,
+				A423AE611829355800B2AA2F /* IFVideoPickerDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -217,6 +491,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A423AE401829355800B2AA2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A423AE581829355800B2AA2F /* Main_iPad.storyboard in Resources */,
+				A423AE5D1829355800B2AA2F /* Images.xcassets in Resources */,
+				A423AE551829355800B2AA2F /* Main_iPhone.storyboard in Resources */,
+				A423AE4C1829355800B2AA2F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A423AE601829355800B2AA2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -224,7 +516,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A423ADBE1829340100B2AA2F /* NSData+Hex.m in Sources */,
+				A423ADBD1829340100B2AA2F /* NSData+Bytes.m in Sources */,
+				A423ADCF1829342400B2AA2F /* MP4Reader.m in Sources */,
+				A423ADB11829337F00B2AA2F /* IFAudioEncoder.m in Sources */,
+				A423ADEA1829348F00B2AA2F /* FLVWriter.m in Sources */,
+				A423ADD01829342400B2AA2F /* MP4Record.m in Sources */,
+				A423ADE81829348F00B2AA2F /* FLVTag.m in Sources */,
+				A423ADB31829337F00B2AA2F /* IFVideoEncoder.m in Sources */,
+				A423ADBF1829340100B2AA2F /* NSMutableData+AMF.m in Sources */,
 				A423AD8D1829330900B2AA2F /* IFVideoPicker.m in Sources */,
+				A423ADD31829342C00B2AA2F /* IFBytesData.m in Sources */,
+				A423ADCD1829342400B2AA2F /* MP4Descriptor.m in Sources */,
+				A423ADB21829337F00B2AA2F /* IFAVAssetEncoder.m in Sources */,
+				A423ADE71829348F00B2AA2F /* FLVMetadata.m in Sources */,
+				A423ADCC1829342400B2AA2F /* MP4Atom.m in Sources */,
+				A423ADD71829345100B2AA2F /* NALUnit.m in Sources */,
+				A423ADCE1829342400B2AA2F /* MP4Frame.m in Sources */,
+				A423ADE51829348F00B2AA2F /* FLVAudioTag.m in Sources */,
+				A423ADE61829348F00B2AA2F /* FLVHeader.m in Sources */,
+				A423ADC01829340100B2AA2F /* NSMutableData+Bytes.m in Sources */,
+				A423ADE91829348F00B2AA2F /* FLVVideoTag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +548,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A423AE3E1829355800B2AA2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A423AE5B1829355800B2AA2F /* ViewController.m in Sources */,
+				A423AE521829355800B2AA2F /* AppDelegate.m in Sources */,
+				A423AE4E1829355800B2AA2F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A423AE5E1829355800B2AA2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -243,6 +572,11 @@
 			isa = PBXTargetDependency;
 			target = A423AD811829330900B2AA2F /* IFVideoPicker */;
 			targetProxy = A423AD981829330900B2AA2F /* PBXContainerItemProxy */;
+		};
+		A423AE671829355800B2AA2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A423AE411829355800B2AA2F /* IFVideoPickerDemo */;
+			targetProxy = A423AE661829355800B2AA2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -253,6 +587,30 @@
 				A423AD9F1829330900B2AA2F /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A423AE4A1829355800B2AA2F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A423AE4B1829355800B2AA2F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A423AE531829355800B2AA2F /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A423AE541829355800B2AA2F /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A423AE561829355800B2AA2F /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A423AE571829355800B2AA2F /* Base */,
+			);
+			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -331,6 +689,8 @@
 		A423ADA61829330900B2AA2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				DSTROOT = /tmp/IFVideoPicker.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IFVideoPicker/IFVideoPicker-Prefix.pch";
@@ -343,6 +703,8 @@
 		A423ADA71829330900B2AA2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				DSTROOT = /tmp/IFVideoPicker.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IFVideoPicker/IFVideoPicker-Prefix.pch";
@@ -356,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IFVideoPickerDemo.app/IFVideoPickerDemo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -369,6 +732,7 @@
 				);
 				INFOPLIST_FILE = "IFVideoPickerTests/IFVideoPickerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -377,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IFVideoPickerDemo.app/IFVideoPickerDemo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -386,6 +751,95 @@
 				GCC_PREFIX_HEADER = "IFVideoPicker/IFVideoPicker-Prefix.pch";
 				INFOPLIST_FILE = "IFVideoPickerTests/IFVideoPickerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		A423AE711829355800B2AA2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IFVideoPickerDemo/IFVideoPickerDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "IFVideoPickerDemo/IFVideoPickerDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A423AE721829355800B2AA2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IFVideoPickerDemo/IFVideoPickerDemo-Prefix.pch";
+				INFOPLIST_FILE = "IFVideoPickerDemo/IFVideoPickerDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A423AE741829355800B2AA2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IFVideoPickerDemo.app/IFVideoPickerDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IFVideoPickerDemo/IFVideoPickerDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "IFVideoPickerDemoTests/IFVideoPickerDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A423AE751829355800B2AA2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IFVideoPickerDemo.app/IFVideoPickerDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IFVideoPickerDemo/IFVideoPickerDemo-Prefix.pch";
+				INFOPLIST_FILE = "IFVideoPickerDemoTests/IFVideoPickerDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -415,6 +869,22 @@
 			buildConfigurations = (
 				A423ADA91829330900B2AA2F /* Debug */,
 				A423ADAA1829330900B2AA2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A423AE701829355800B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A423AE711829355800B2AA2F /* Debug */,
+				A423AE721829355800B2AA2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A423AE731829355800B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A423AE741829355800B2AA2F /* Debug */,
+				A423AE751829355800B2AA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

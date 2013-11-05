@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>IFVideoPickerDemo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>A423AD911829330900B2AA2F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A423AE411829355800B2AA2F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A423AE611829355800B2AA2F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

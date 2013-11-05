@@ -38,6 +38,16 @@
                ReferencedContainer = "container:IFVideoPicker.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A423AE611829355800B2AA2F"
+               BuildableName = "IFVideoPickerDemoTests.xctest"
+               BlueprintName = "IFVideoPickerDemoTests"
+               ReferencedContainer = "container:IFVideoPicker.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
