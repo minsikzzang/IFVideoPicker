@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
 
-  s.public_header_files = 'IFVideoPicker/IFVideoPicker.h'
+  s.public_header_files = 'IFVideoPicker/IFVideoPicker.h', 'IFVideoPicker/IFAVAssetEncoder.h', 'IFVideoPicker/IFAudioEncoder.h', 'IFVideoPicker/IFVideoEncoder.h', 'IFVideoPicker/MP4Frame.h' 
+  
   s.source_files = 'IFVideoPicker/IF{*}.{h,m}'
   s.ios.frameworks = 'AssetsLibrary', 'CoreMedia', 'AVFoundation', 'UIKit'  
   
