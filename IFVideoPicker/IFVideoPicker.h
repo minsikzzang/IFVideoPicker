@@ -15,6 +15,9 @@
 #import "AVFoundation/AVCaptureVideoPreviewLayer.h"
 #import "AVFoundation/AVMediaFormat.h"
 #import "IFAVAssetEncoder.h"
+#import "IFAudioEncoder.h"
+#import "IFVideoEncoder.h"
+#import "MP4Frame.h"
 
 typedef void (^captureHandler)(CMSampleBufferRef sampleBuffer,
                                IFCapturedBufferType type);

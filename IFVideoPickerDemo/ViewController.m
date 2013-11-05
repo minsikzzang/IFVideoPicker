@@ -8,8 +8,6 @@
 
 #import "ViewController.h"
 #import "IFVideoPicker.h"
-#import "IFAudioEncoder.h"
-#import "IFVideoEncoder.h"
 
 @interface ViewController () {
   IFVideoPicker *videoPicker_;
