@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/ifactorylab/IFVideoPicker'
   s.authors  = { 'Min Kim' => 'minsikzzang@gmail.com' }
   s.source   = { :git => 'https://github.com/ifactorylab/IFVideoPicker.git', :tag => "1.0.0", :submodules => true }
-  s.requires_arc = true
+  s.requires_arc = false
 
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
