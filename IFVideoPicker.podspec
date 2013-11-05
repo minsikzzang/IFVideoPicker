@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'NSData' do |ss|
-    ss.source_files = 'IFVideoPicker/NSData{*}.{h,m}', 'IFVideoPicker/NSMutableData.{h,m}', 'IFVideoPicker/IFBytesData.{h,m}'
+    ss.source_files = 'IFVideoPicker/NSData{*}.{h,m}', 'IFVideoPicker/NSMutableData+{*}.{h,m}', 'IFVideoPicker/IFBytesData.{h,m}'
   end
 end
