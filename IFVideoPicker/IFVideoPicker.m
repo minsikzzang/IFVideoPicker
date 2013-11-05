@@ -234,10 +234,12 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
 }
 
 - (void)startPreview:(UIView *)view {
-  [self startPreview:view withFrame:[view bounds]];
+  [self startPreview:view withFrame:[view bounds]
+         orientation:AVCaptureVideoOrientationPortrait];
 }
 
-- (void)startPreview:(UIView *)view withFrame:(CGRect)frame {
+- (void)startPreview:(UIView *)view withFrame:(CGRect)frame
+         orientation:(AVCaptureVideoOrientation)orientation {
   AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer =
   [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
   
@@ -247,14 +249,12 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   [newCaptureVideoPreviewLayer setFrame:frame];
   if ([newCaptureVideoPreviewLayer respondsToSelector:@selector(connection)]) {
     if ([newCaptureVideoPreviewLayer.connection isVideoOrientationSupported]) {
-      [newCaptureVideoPreviewLayer.connection
-       setVideoOrientation:AVCaptureVideoOrientationPortrait];
+      [newCaptureVideoPreviewLayer.connection setVideoOrientation:orientation];
     }
   } else {
     // Deprecated in 6.0; here for backward compatibility
     if ([newCaptureVideoPreviewLayer isOrientationSupported]) {
-      [newCaptureVideoPreviewLayer
-       setOrientation:AVCaptureVideoOrientationPortrait];
+      [newCaptureVideoPreviewLayer setOrientation:orientation];
     }
   }
   

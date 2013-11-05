@@ -45,7 +45,9 @@ typedef void (^captureHandler)(CMSampleBufferRef sampleBuffer,
  */
 - (void)startPreview:(UIView *)view;
 
-- (void)startPreview:(UIView *)view withFrame:(CGRect)frame;
+- (void)startPreview:(UIView *)view withFrame:(CGRect)frame
+         orientation:(AVCaptureVideoOrientation)orientation;
+
 
 /**
  @abstract
