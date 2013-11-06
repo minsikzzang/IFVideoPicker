@@ -22,7 +22,7 @@
 - (AVCaptureDevice *)frontFacingCamera;
 - (AVCaptureDevice *)backFacingCamera;
 - (AVCaptureDevice *)audioDevice;
-- (void)startCapture;
+- (void)startCapture:(IFAVAssetEncoder *)encoder;
 
 @end
 
@@ -325,7 +325,9 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
 
 // Add video and audio output objects to the current session to capture video
 // and audio stream from the session.
-- (void)startCapture {
+- (void)startCapture:(IFAVAssetEncoder *)encoder {
+  [encoder start];
+  
   // Add video and audio output to current capture session.
   if ([session canAddOutput:videoBufferOutput]) {
     [session addOutput:videoBufferOutput];
@@ -338,12 +340,13 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   // Now, we are capturing
   [self setIsCapturing:YES];
 }
-
+/*
 - (void)startCaptureWithBlock:(captureHandler)completionBlock {
   sampleBufferHandler_ = completionBlock;
   
   [self startCapture];
 }
+*/
 
 - (void)startCaptureWithEncoder:(IFVideoEncoder *)video
                           audio:(IFAudioEncoder *)audio
@@ -363,7 +366,7 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
     assetEncoder_.metaHeaderHandler = metaHeaderBlock;
   }
   
-  [self startCapture];
+  [self startCapture:assetEncoder_];
 }
 /*
 - (void)startCaptureToFileWithEncoder:(IFVideoEncoder *)video
@@ -391,7 +394,8 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   
   // Clean up encoder objects which might have been set eariler.
   if (assetEncoder_ != nil) {
-    [assetEncoder_ stopWithSaveToAlbum:YES];
+    // [assetEncoder_ stopWithSaveToAlbum:NO];
+    [assetEncoder_ stop];
     [assetEncoder_ release];
     assetEncoder_ = nil;
   }
@@ -405,7 +409,7 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   
   // If session has stopped before changing, start it again.
   // [self.session startRunning];
-  sampleBufferHandler_ = nil;
+  // sampleBufferHandler_ = nil;
   
   // Now, we are not capturing
   [self setIsCapturing:NO];

@@ -22,17 +22,22 @@
 @synthesize buffer;
 
 + (IFBytesData *)dataWithNSData:(NSData *)data {
-  IFBytesData *bytes = [[IFBytesData alloc] initwithNSData:data];
-  return bytes;
+  IFBytesData *bytes = [[IFBytesData alloc] initWithNSData:data];
+  return [bytes autorelease];
 }
 
-- (id)initwithNSData:(NSData *)data {
+- (id)initWithNSData:(NSData *)data {
   self = [super init];
   if (self) {
     self.buffer = data;
     position = 0;
   }
   return self;
+}
+
+- (void)dealloc {
+  [buffer release];
+  [super dealloc];
 }
 
 - (const void *)bytes {

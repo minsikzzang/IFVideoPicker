@@ -18,6 +18,14 @@ typedef enum {
   kBufferAudio
 } IFCapturedBufferType;
 
+typedef enum {
+  kEncoderStateUnknown = 0,
+  kEncoderStateRunning,
+  kEncoderStateFinishing,
+  kEncoderStateFinished,
+  kEncoderStateStopped
+} IFEncoderState;
+
 typedef void (^encodedCaptureHandler)(NSArray *frames, NSData *buffer);
 typedef void (^encodedBufferCaptureHandler)(IFCapturedBufferType type,
                                             NSData *buffer,
@@ -48,6 +56,7 @@ typedef void (^encodingMetaHeaderHandler)(MP4Reader *reader);
 @property (atomic, copy) encodingMetaHeaderHandler metaHeaderHandler;
 @property (atomic, copy) encodedBufferCaptureHandler bufferCaptureHandler;
 @property (atomic, assign) UInt64 maxFileSize;
+@property (nonatomic, assign, getter = getEncoderState) IFEncoderState encoderState;
 
 /**
  @abstract
@@ -66,6 +75,12 @@ typedef void (^encodingMetaHeaderHandler)(MP4Reader *reader);
 - (void)encodeSampleBuffer:(CMSampleBufferRef)sampleBuffer
                     ofType:(IFCapturedBufferType)mediaType;
 
-- (void)stopWithSaveToAlbum:(BOOL)saveToAlbum;
+- (void)start;
+
+// Since we split all stream to chunks, not be able to save entire video in
+// album. In order to support this, we have to write another file which contains
+// entire movie data.
+// - (void)stopWithSaveToAlbum:(BOOL)saveToAlbum;
+- (void)stop;
 
 @end

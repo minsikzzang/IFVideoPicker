@@ -33,7 +33,7 @@ typedef void (^captureHandler)(CMSampleBufferRef sampleBuffer,
 @property (nonatomic, retain) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 @property (nonatomic, retain) AVCaptureSession *session;
 @property (nonatomic, retain) UIView *videoPreviewView;
-@property (nonatomic, assign) BOOL isCapturing;
+@property (nonatomic, assign, getter = getEncoderState) BOOL isCapturing;
 
 - (BOOL)startup;
 

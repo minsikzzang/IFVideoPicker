@@ -85,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A414D1FD182A87930085AA9A /* IFVideoPicker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IFVideoPicker.podspec; sourceTree = SOURCE_ROOT; };
 		A423AD821829330900B2AA2F /* libIFVideoPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIFVideoPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A423AD851829330900B2AA2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A423AD891829330900B2AA2F /* IFVideoPicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IFVideoPicker-Prefix.pch"; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 		A423AD791829330900B2AA2F = {
 			isa = PBXGroup;
 			children = (
+				A414D1FD182A87930085AA9A /* IFVideoPicker.podspec */,
 				A423AD871829330900B2AA2F /* IFVideoPicker */,
 				A423AD9B1829330900B2AA2F /* IFVideoPickerTests */,
 				A423AE471829355800B2AA2F /* IFVideoPickerDemo */,
@@ -863,6 +865,7 @@
 				A423ADA71829330900B2AA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A423ADA81829330900B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerTests" */ = {
 			isa = XCConfigurationList;
@@ -871,6 +874,7 @@
 				A423ADAA1829330900B2AA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A423AE701829355800B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerDemo" */ = {
 			isa = XCConfigurationList;
@@ -879,6 +883,7 @@
 				A423AE721829355800B2AA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A423AE731829355800B2AA2F /* Build configuration list for PBXNativeTarget "IFVideoPickerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -887,6 +892,7 @@
 				A423AE751829355800B2AA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

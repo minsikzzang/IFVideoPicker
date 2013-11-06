@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'IFVideoPicker'
-  s.version  = '1.0.0'
+  s.version  = '1.0.1'
   s.license  = 'MIT'
   s.summary  = 'Library iOS video picker using AVCapturexxxx libraries.'
   s.homepage = 'https://github.com/ifactorylab/IFVideoPicker'
   s.authors  = { 'Min Kim' => 'minsikzzang@gmail.com' }
-  s.source   = { :git => 'https://github.com/ifactorylab/IFVideoPicker.git', :tag => "1.0.0", :submodules => true }
+  s.source   = { :git => 'https://github.com/ifactorylab/IFVideoPicker.git', :tag => "1.0.1", :submodules => true }
   s.requires_arc = false
 
   s.ios.deployment_target = '6.0'
