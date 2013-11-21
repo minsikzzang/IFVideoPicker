@@ -111,15 +111,15 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
     // Create capture device with video input
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     deviceConnectedObserver =
-    [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
-                                    object:nil
-                                     queue:nil
-                                usingBlock:deviceConnectedBlock];
+      [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
+                                      object:nil
+                                       queue:nil
+                                  usingBlock:deviceConnectedBlock];
     deviceDisconnectedObserver =
-    [notificationCenter addObserverForName:AVCaptureDeviceWasDisconnectedNotification
-                                    object:nil
-                                     queue:nil
-                                usingBlock:deviceDisconnectedBlock];
+      [notificationCenter addObserverForName:AVCaptureDeviceWasDisconnectedNotification
+                                      object:nil
+                                       queue:nil
+                                  usingBlock:deviceDisconnectedBlock];
   }
   return self;
 }
@@ -165,11 +165,11 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   
   // Init the device inputs
   AVCaptureDeviceInput *newVideoInput =
-  [[AVCaptureDeviceInput alloc] initWithDevice:backFacingCaemra
-                                         error:nil];
+    [[AVCaptureDeviceInput alloc] initWithDevice:backFacingCaemra
+                                           error:nil];
   AVCaptureDeviceInput *newAudioInput =
-  [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice]
-                                         error:nil];
+    [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice]
+                                           error:nil];
   
   // Set up the video YUV buffer output
   dispatch_queue_t videoCaptureQueue =
@@ -331,6 +331,14 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   // Add video and audio output to current capture session.
   if ([session canAddOutput:videoBufferOutput]) {
     [session addOutput:videoBufferOutput];
+    
+    for (AVCaptureConnection *c in videoBufferOutput.connections) {
+      NSLog(@"Video stablization supported: %@",
+            c.isVideoStabilizationSupported ? @"TRUE" : @"FALSE");
+      if (c.isVideoStabilizationSupported) {
+        c.enablesVideoStabilizationWhenAvailable = YES;
+      }
+    }
   }
   
   if ([session canAddOutput:audioBufferOutput]) {
