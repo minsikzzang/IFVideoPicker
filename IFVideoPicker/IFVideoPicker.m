@@ -335,6 +335,8 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
     for (AVCaptureConnection *c in videoBufferOutput.connections) {
       NSLog(@"Video stablization supported: %@",
             c.isVideoStabilizationSupported ? @"TRUE" : @"FALSE");
+      NSLog(@"Video stablization enabled: %@",
+            c.videoStabilizationEnabled ? @"TRUE" : @"FALSE");
       if (c.isVideoStabilizationSupported) {
         c.enablesVideoStabilizationWhenAvailable = YES;
       }
