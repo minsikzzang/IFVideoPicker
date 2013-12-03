@@ -13,9 +13,8 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'IFVideoPicker/IFVideoPicker.h', 'IFVideoPicker/IFAVAssetEncoder.h', 'IFVideoPicker/IFAudioEncoder.h', 'IFVideoPicker/IFVideoEncoder.h', 'IFVideoPicker/MP4Frame.h' 
   
-  s.source_files = 'IFVideoPicker/IF{*}.{h,m}', 'IFVideoPicker/NSData{*}.{h,m}', 'IFVideoPicker/NSMutableData+{*}.{h,m}', 'IFVideoPicker/IFBytesData.{h,m}', 'IFVideoPicker/FLV{*}.{h,m}'
-
-  s.ios.frameworks = 'AssetsLibrary', 'CoreMedia', 'AVFoundation', 'UIKit'  
+  s.source_files = 'IFVideoPicker/IF{*}.{h,m}'
+  s.ios.frameworks = 'AssetsLibrary', 'CoreMedia', 'AVFoundation', 'UIKit', 'Foundation", "CoreGraphics"  
   
   s.subspec 'MP4' do |ss|
     ss.source_files = 'IFVideoPicker/MP4{*}.{h,m}'
