@@ -52,6 +52,17 @@
 		A423AE78182937C800B2AA2F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE77182937C800B2AA2F /* AVFoundation.framework */; };
 		A423AE7B1829380300B2AA2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE79182937DD00B2AA2F /* UIKit.framework */; };
 		A423AE7D1829382400B2AA2F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A423AE7C1829382400B2AA2F /* AssetsLibrary.framework */; };
+		A4565593185772620000A95F /* IFBytesData.h in Sources */ = {isa = PBXBuildFile; fileRef = A423ADD11829342C00B2AA2F /* IFBytesData.h */; };
+		A4565594185772620000A95F /* IFBytesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADD21829342C00B2AA2F /* IFBytesData.m */; };
+		A4565595185772620000A95F /* NSData+Bytes.h in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB51829340100B2AA2F /* NSData+Bytes.h */; };
+		A4565596185772620000A95F /* NSData+Bytes.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB61829340100B2AA2F /* NSData+Bytes.m */; };
+		A4565597185772620000A95F /* NSData+Hex.h in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB71829340100B2AA2F /* NSData+Hex.h */; };
+		A4565598185772620000A95F /* NSData+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB81829340100B2AA2F /* NSData+Hex.m */; };
+		A4565599185772620000A95F /* NSMutableData+AMF.h in Sources */ = {isa = PBXBuildFile; fileRef = A423ADB91829340100B2AA2F /* NSMutableData+AMF.h */; };
+		A456559A185772620000A95F /* NSMutableData+AMF.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADBA1829340100B2AA2F /* NSMutableData+AMF.m */; };
+		A456559B185772620000A95F /* NSMutableData+Bytes.h in Sources */ = {isa = PBXBuildFile; fileRef = A423ADBB1829340100B2AA2F /* NSMutableData+Bytes.h */; };
+		A456559C185772620000A95F /* NSMutableData+Bytes.m in Sources */ = {isa = PBXBuildFile; fileRef = A423ADBC1829340100B2AA2F /* NSMutableData+Bytes.m */; };
+		A456559F1857895E0000A95F /* IFPendingSampleBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = A456559E1857895E0000A95F /* IFPendingSampleBuffer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +165,8 @@
 		A423AE77182937C800B2AA2F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A423AE79182937DD00B2AA2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A423AE7C1829382400B2AA2F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		A456559D1857895E0000A95F /* IFPendingSampleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFPendingSampleBuffer.h; sourceTree = "<group>"; };
+		A456559E1857895E0000A95F /* IFPendingSampleBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFPendingSampleBuffer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +267,8 @@
 				A423ADB01829337F00B2AA2F /* IFVideoEncoder.m */,
 				A423AD8A1829330900B2AA2F /* IFVideoPicker.h */,
 				A423AD8C1829330900B2AA2F /* IFVideoPicker.m */,
+				A456559D1857895E0000A95F /* IFPendingSampleBuffer.h */,
+				A456559E1857895E0000A95F /* IFPendingSampleBuffer.m */,
 				A423AD881829330900B2AA2F /* Supporting Files */,
 			);
 			path = IFVideoPicker;
@@ -538,6 +553,7 @@
 				A423ADE51829348F00B2AA2F /* FLVAudioTag.m in Sources */,
 				A423ADE61829348F00B2AA2F /* FLVHeader.m in Sources */,
 				A423ADC01829340100B2AA2F /* NSMutableData+Bytes.m in Sources */,
+				A456559F1857895E0000A95F /* IFPendingSampleBuffer.m in Sources */,
 				A423ADE91829348F00B2AA2F /* FLVVideoTag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +570,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4565593185772620000A95F /* IFBytesData.h in Sources */,
+				A4565594185772620000A95F /* IFBytesData.m in Sources */,
+				A4565595185772620000A95F /* NSData+Bytes.h in Sources */,
+				A4565596185772620000A95F /* NSData+Bytes.m in Sources */,
+				A4565597185772620000A95F /* NSData+Hex.h in Sources */,
+				A4565598185772620000A95F /* NSData+Hex.m in Sources */,
+				A4565599185772620000A95F /* NSMutableData+AMF.h in Sources */,
+				A456559A185772620000A95F /* NSMutableData+AMF.m in Sources */,
+				A456559B185772620000A95F /* NSMutableData+Bytes.h in Sources */,
+				A456559C185772620000A95F /* NSMutableData+Bytes.m in Sources */,
 				A423AE5B1829355800B2AA2F /* ViewController.m in Sources */,
 				A423AE521829355800B2AA2F /* AppDelegate.m in Sources */,
 				A423AE4E1829355800B2AA2F /* main.m in Sources */,

@@ -163,6 +163,13 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
 		}
   }
   
+  if ([backFacingCaemra isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+    if ([backFacingCaemra lockForConfiguration:nil]) {
+      [backFacingCaemra setFocusMode:AVCaptureFocusModeAutoFocus];
+    }
+    [backFacingCaemra unlockForConfiguration];
+  }
+  
   // Init the device inputs
   AVCaptureDeviceInput *newVideoInput =
     [[AVCaptureDeviceInput alloc] initWithDevice:backFacingCaemra
@@ -196,7 +203,8 @@ const char *kAudioBufferQueueLabel = "com.ifactorylab.ifvideopicker.audioqueue";
   AVCaptureSession *newSession = [[AVCaptureSession alloc] init];
   // newSession.sessionPreset = AVCaptureSessionPreset640x480;
   // If you want to have HD quality output, use this code below
-  newSession.sessionPreset = AVCaptureSessionPresetiFrame960x540;
+  // newSession.sessionPreset = AVCaptureSessionPresetiFrame960x540;
+  newSession.sessionPreset = AVCaptureSessionPreset1920x1080;
   
   // Add inputs and output to the capture session
   if ([newSession canAddInput:newVideoInput]) {

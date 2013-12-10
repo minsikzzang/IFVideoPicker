@@ -57,7 +57,7 @@ typedef void (^captureHandler)(CMSampleBufferRef sampleBuffer,
  start capture YUV format video and audio stream from camera device. It returns
  captured raw buffer as form of CMSampleBufferRef through captureBlock.
  */
-- (void)startCaptureWithBlock:(captureHandler)captureBlock;
+// - (void)startCaptureWithBlock:(captureHandler)captureBlock;
 
 /**
  @abstract

@@ -17,6 +17,7 @@
 #import "MP4Frame.h"
 #import "IFBytesData.h"
 #import "NALUnit.h"
+#import "IFPendingSampleBuffer.h"
 
 @interface IFAVAssetEncoder () {
   IFVideoEncoder *videoEncoder_;
@@ -28,6 +29,7 @@
   // NSMutableArray *pendingNalu_;
   BOOL readMovieMeta_;
   IFEncoderState encoderState_;
+  NSMutableArray *pendingSampleBuffers_;
   
   dispatch_queue_t assetEncodingQueue_;
   dispatch_source_t dispatchSource_;
@@ -41,7 +43,7 @@
 - (NSString *)getOutputFilePath:(NSString *)fileType;
 - (id)initWithFileType:(NSString *)fileType;
 - (NSString *)mediaPathForMediaType:(NSString *)mediaType;
-- (void)writeSampleBuffer:(CMSampleBufferRef)sampleBuffer
+- (BOOL)writeSampleBuffer:(CMSampleBufferRef)sampleBuffer
                    ofType:(IFCapturedBufferType)mediaType;
 - (BOOL)appendSampleBuffer:(CMSampleBufferRef)sampleBuffer
              toWriterInput:(AVAssetWriterInput *)writerInput;
@@ -101,6 +103,7 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
     // timeStamps_ = [[NSMutableArray alloc] initWithCapacity:10];
     // previousNalu = nil;
     // pendingNalu_ = [[NSMutableArray alloc] initWithCapacity:2];
+    pendingSampleBuffers_ = [[NSMutableArray alloc] initWithCapacity:5];
     readMovieMeta_ = NO;
     
     // Generate temporary file path to store encoded file
@@ -269,11 +272,11 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
   }
 }
 
-- (void)writeSampleBuffer:(CMSampleBufferRef)sampleBuffer
+- (BOOL)writeSampleBuffer:(CMSampleBufferRef)sampleBuffer
                    ofType:(IFCapturedBufferType)mediaType {
   // Even if stream is coming, just do nothing if we are not ready yet.
   if (self.encoderState != kEncoderStateRunning) {
-    return;
+    return NO;
   }
   
   @synchronized (self) {
@@ -295,7 +298,7 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
   @synchronized (self) {
     if (!readMetaHeaderFinished_) {
       // If the meta header hasn't parsed yet, we don't start encoding.
-      return;
+      return YES;
     }
   }
   /*
@@ -307,14 +310,18 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
     [timeStamps_ addObject:pts];
   }
 */
-  
   if ([self encodeSampleBuffer:sampleBuffer
                         ofType:mediaType
                    assetWriter:assetWriter]) {
     if (!watchOutputFileReady_) {
       [self watchOutputFile:[outputURL path]];
     }
+  } else {
+    NSLog(@"*************** Failed to encode given sample buffer");
+    return NO;
   }
+  
+  return YES;
 }
 
 - (void)encodeSampleBuffer:(CMSampleBufferRef)sampleBuffer
@@ -323,10 +330,46 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
     CFRetain(sampleBuffer);
     // We'd like encoding job running asynchronously
     dispatch_async(assetEncodingQueue_, ^{
+      // NSLog(@"*************** MEDIA STREAM COMING");
+
+      int writtenBufferCount = 0;
+      if (pendingSampleBuffers_.count > 0) {
+        for (IFPendingSampleBuffer *pending in pendingSampleBuffers_) {
+          CMSampleBufferRef buf = [pending getSampleBuffer];
+          if (![self writeSampleBuffer:buf ofType:pending.mediaType]) {
+            break;
+          }
+          
+          writtenBufferCount++;
+/*
+          NSLog(@"*************** Pending buffer has consumed, "
+                "pendingSampleBuffers_ => buffer size: %d",
+                (int)pendingSampleBuffers_.count - writtenBufferCount);
+ */
+        }
+        
+        for (int i = 0; i < writtenBufferCount; ++i) {
+          [pendingSampleBuffers_ removeObjectAtIndex:0];
+        }
+      }
+      
       // Write the given sample buffer to output file through AVAssetWriter
-      [self writeSampleBuffer:sampleBuffer ofType:mediaType];
+      if (pendingSampleBuffers_.count > 0 ||
+          ![self writeSampleBuffer:sampleBuffer ofType:mediaType]) {
+        /*
+        NSLog(@"*************** We store the buffer to pendingSampleBuffers_ => buffer size: %d",
+              (int)pendingSampleBuffers_.count);
+         */
+        [pendingSampleBuffers_ addObject:
+         [IFPendingSampleBuffer pendingSampleBuffer:sampleBuffer
+                                             ofType:mediaType]];
+      }
+      
+      // [self writeSampleBuffer:sampleBuffer ofType:mediaType];
       CFRelease(sampleBuffer);
     });
+  } else {
+    NSLog(@"No valid assetEncodingQueue_ exist");
   }
 }
 
@@ -357,6 +400,7 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
       @try {
         if (self.encoderState == kEncoderStateStopped) {
           self.encoderState = kEncoderStateFinishing;
+          
           @synchronized (self) {
             [self.audioEncoder.assetWriterInput markAsFinished];
             [self.videoEncoder.assetWriterInput markAsFinished];
@@ -438,8 +482,11 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
     if (flags & DISPATCH_VNODE_EXTEND) {
       // unsigned long long currentOffset = [outputFileHandle offsetInFile];
       NSData *chunk = [outputFileHandle readDataToEndOfFile];
+      
+      NSLog(@"READ CHUNK **********************");
       // if ([chunk length] > 0) {
-      if ([chunk length] > 8192) {
+      // if ([chunk length] > 8192) {
+      if ([chunk length] > 8192 * 2) {
         if (assetWriter.status == AVAssetWriterStatusWriting) {
           if (self.encoderState != kEncoderStateRunning) {
             // If the current status is not running, don't do anything here
@@ -451,13 +498,39 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
             self.encoderState = kEncoderStateFinishing;
             
             @synchronized (self) {
-              [self.audioEncoder.assetWriterInput markAsFinished];
-              [self.videoEncoder.assetWriterInput markAsFinished];
+              // [self.audioEncoder.assetWriterInput markAsFinished];
+              // [self.videoEncoder.assetWriterInput markAsFinished];
             }
             
             // Regardless of job failure, we need to reset current encoder
             dispatch_source_cancel(dispatchSource_);
             dispatchSource_ = nil;
+            
+            // AVAssetWriter *oldAssetWriter = [assetWriter retain];
+            // [assetWriter release];
+/*
+            // Once it's done, generate new file name and reinitiate AVAssetWrite
+            self.outputURL = [NSURL fileURLWithPath:[self getOutputFilePath:fileType]
+                                        isDirectory:NO];
+            
+            NSError *error;
+            assetWriter = [[AVAssetWriter alloc] initWithURL:outputURL
+                                                    fileType:fileType
+                                                       error:&error];
+            
+            // setVideoEncoder and setAudioEncoder will retain the given
+            // encoder objects so we need to reduce reference as it's retained
+            // in the functions.
+            [assetWriter addInput:videoEncoder_.assetWriterInput];
+            [assetWriter addInput:audioEncoder_.assetWriterInput];
+            
+            self.encoderState = kEncoderStateRunning;
+            
+            // we are good to go.
+            @synchronized (self) {
+              watchOutputFileReady_ = NO;
+            }
+ */
             
             // Wait until it finishes
             [assetWriter finishWritingWithCompletionHandler:^{
@@ -467,9 +540,6 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
               if (self.encoderState == kEncoderStateStopped) {
                 restartEncoder = NO;
               }
-            
-              // Update current encoder status to "EncoderFinished"
-              self.encoderState = kEncoderStateFinished;
               
               if (assetWriter.status == AVAssetWriterStatusFailed) {
                 NSLog(@"Failed to finish writing: %@", [assetWriter error]);
@@ -523,12 +593,18 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
                 [assetWriter addInput:audioEncoder_.assetWriterInput];
                 
                 self.encoderState = kEncoderStateRunning;
-
+                
                 // we are good to go.
                 @synchronized (self) {
                   watchOutputFileReady_ = NO;
                 }
+              } else {
+                // Update current encoder status to "EncoderFinished", if we
+                // don't start the encoder again.
+                self.encoderState = kEncoderStateFinished;
               }
+              
+              NSLog(@"PROCESS HAS FINISHED *******************");
             }];
           } @catch (NSException *exception) {
             NSLog(@"Caught exception: %@", [exception description]);
@@ -720,6 +796,10 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
   //  [pendingNalu_ release];
   // }
 
+  if (pendingSampleBuffers_) {
+    [pendingSampleBuffers_ release];
+  }
+  
   if (audioEncoder_) {
     [audioEncoder_ release];
   }
