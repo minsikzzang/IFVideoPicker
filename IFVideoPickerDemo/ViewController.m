@@ -95,7 +95,7 @@
   for (MP4Frame *f in frames) {
     NSData *chunk = [NSData dataWithBytes:(char *)[buffer bytes] + f.offset
                                    length:f.size];
-    NSLog(@"captureHandleByCompletedMP4Frames: timestamp: %ul, type: %@",
+    NSLog(@"captureHandleByCompletedMP4Frames: timestamp: %u, type: %@",
           (unsigned int)(lastTimestamp_ * 1000),
           (f.type == kFrameTypeAudio ? @"audio" : @"video"));
     // lastTimestamp_ = f.timestamp + tsOffset;
@@ -107,8 +107,7 @@
     lastTimestamp_ = f.timestamp + tsOffset;
   }
   
-  if (lastTimestamp_ > 10)
-    lastTimestamp_ -= 10;
+  lastTimestamp_ += 0.01;
   
   // [outputFileHandle seekToEndOfFile];
   [outputFileHandle writeData:flvWriter_.packet];

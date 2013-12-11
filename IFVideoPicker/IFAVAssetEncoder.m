@@ -181,10 +181,12 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
     @try {
       if (![writerInput appendSampleBuffer:sampleBuffer]) {
         NSLog(@"Failed to append sample buffer: %@", [assetWriter error]);
+        return NO;
       }
       return YES;
     } @catch (NSException *exception) {
       NSLog(@"Couldn't append sample buffer: %@", [exception description]);
+      return NO;
     }
   }
   return NO;
@@ -457,7 +459,7 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
   dispatch_queue_t queue =
       dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
   // int file = open([filePath UTF8String], O_EVTONLY);
-  
+  double movieBitrate = self.videoEncoder.bitRate + self.audioEncoder.bitRate;
   self.outputFileHandle = [NSFileHandle fileHandleForReadingAtPath:filePath];
   dispatchSource_ = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE,
                                            [outputFileHandle fileDescriptor],
@@ -483,10 +485,12 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
       // unsigned long long currentOffset = [outputFileHandle offsetInFile];
       NSData *chunk = [outputFileHandle readDataToEndOfFile];
       
-      NSLog(@"READ CHUNK **********************");
+      // NSLog(@"READ CHUNK ********************** movieBitrate => %f", movieBitrate);
+      
       // if ([chunk length] > 0) {
-      // if ([chunk length] > 8192) {
-      if ([chunk length] > 8192 * 2) {
+      // Let's make each chunk contains at least one second movie.
+      if ([chunk length] > movieBitrate) {
+      // if ([chunk length] > 8192 * 2) {
         if (assetWriter.status == AVAssetWriterStatusWriting) {
           if (self.encoderState != kEncoderStateRunning) {
             // If the current status is not running, don't do anything here
