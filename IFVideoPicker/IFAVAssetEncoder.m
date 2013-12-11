@@ -488,8 +488,8 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
       // NSLog(@"READ CHUNK ********************** movieBitrate => %f", movieBitrate);
       
       // if ([chunk length] > 0) {
-      // Let's make each chunk contains at least one second movie.
-      if ([chunk length] > movieBitrate) {
+      // Let's make each chunk contains at least half second movie.
+      if ([chunk length] > (movieBitrate / 2)) {
       // if ([chunk length] > 8192 * 2) {
         if (assetWriter.status == AVAssetWriterStatusWriting) {
           if (self.encoderState != kEncoderStateRunning) {
