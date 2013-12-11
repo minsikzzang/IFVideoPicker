@@ -107,7 +107,7 @@
     lastTimestamp_ = f.timestamp + tsOffset;
   }
   
-  lastTimestamp_ += 0.01;
+  // lastTimestamp_ += 0.01;
   
   // [outputFileHandle seekToEndOfFile];
   [outputFileHandle writeData:flvWriter_.packet];
