@@ -485,12 +485,9 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
       // unsigned long long currentOffset = [outputFileHandle offsetInFile];
       NSData *chunk = [outputFileHandle readDataToEndOfFile];
       
-      // NSLog(@"READ CHUNK ********************** movieBitrate => %f", movieBitrate);
-      
       // if ([chunk length] > 0) {
       // Let's make each chunk contains at least half second movie.
-      if ([chunk length] > (movieBitrate / 2)) {
-      // if ([chunk length] > 8192 * 2) {
+      if ([chunk length] > (movieBitrate / 10)) {
         if (assetWriter.status == AVAssetWriterStatusWriting) {
           if (self.encoderState != kEncoderStateRunning) {
             // If the current status is not running, don't do anything here
@@ -500,41 +497,16 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
           @try {
             // Update current encoder status to "EncoderFinishing"
             self.encoderState = kEncoderStateFinishing;
-            
+            /*
             @synchronized (self) {
-              // [self.audioEncoder.assetWriterInput markAsFinished];
-              // [self.videoEncoder.assetWriterInput markAsFinished];
+              [self.audioEncoder.assetWriterInput markAsFinished];
+              [self.videoEncoder.assetWriterInput markAsFinished];
             }
+            */
             
             // Regardless of job failure, we need to reset current encoder
             dispatch_source_cancel(dispatchSource_);
             dispatchSource_ = nil;
-            
-            // AVAssetWriter *oldAssetWriter = [assetWriter retain];
-            // [assetWriter release];
-/*
-            // Once it's done, generate new file name and reinitiate AVAssetWrite
-            self.outputURL = [NSURL fileURLWithPath:[self getOutputFilePath:fileType]
-                                        isDirectory:NO];
-            
-            NSError *error;
-            assetWriter = [[AVAssetWriter alloc] initWithURL:outputURL
-                                                    fileType:fileType
-                                                       error:&error];
-            
-            // setVideoEncoder and setAudioEncoder will retain the given
-            // encoder objects so we need to reduce reference as it's retained
-            // in the functions.
-            [assetWriter addInput:videoEncoder_.assetWriterInput];
-            [assetWriter addInput:audioEncoder_.assetWriterInput];
-            
-            self.encoderState = kEncoderStateRunning;
-            
-            // we are good to go.
-            @synchronized (self) {
-              watchOutputFileReady_ = NO;
-            }
- */
             
             // Wait until it finishes
             [assetWriter finishWritingWithCompletionHandler:^{
@@ -607,8 +579,6 @@ const char *kAssetEncodingQueue = "com.ifactorylab.ifassetencoder.encodingqueue"
                 // don't start the encoder again.
                 self.encoderState = kEncoderStateFinished;
               }
-              
-              NSLog(@"PROCESS HAS FINISHED *******************");
             }];
           } @catch (NSException *exception) {
             NSLog(@"Caught exception: %@", [exception description]);

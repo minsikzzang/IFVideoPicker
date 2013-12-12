@@ -18,7 +18,8 @@
   IFVideoPicker *videoPicker_;
   BOOL flvMetadataSent_;
   FLVWriter *flvWriter_;
-  double lastTimestamp_;
+  double lastVideoTimestamp_;
+  double lastAudioTimestamp_;
   NSMutableData *buffer_;
 }
 
@@ -91,24 +92,33 @@
 
 - (void)captureHandleByCompletedMP4Frames:(NSArray *)frames
                                    buffer:(NSData *)buffer {
-  double tsOffset = lastTimestamp_;
+  double tsVideoOffset = lastVideoTimestamp_;
+  double tsAudioOffset = lastAudioTimestamp_;
+  
   for (MP4Frame *f in frames) {
+    if (f.type == kFrameTypeAudio) {
+      lastAudioTimestamp_ = f.timestamp + tsAudioOffset;
+    } else if (f.type == kFrameTypeVideo) {
+      lastVideoTimestamp_ = f.timestamp + tsVideoOffset;
+    }
+    
     NSData *chunk = [NSData dataWithBytes:(char *)[buffer bytes] + f.offset
                                    length:f.size];
-    NSLog(@"captureHandleByCompletedMP4Frames: timestamp: %u, type: %@",
-          (unsigned int)(lastTimestamp_ * 1000),
+    NSLog(@"captureHandleByCompletedMP4Frames: timestampFromFrame: %f, timestamp: %u, type: %@",
+          f.timestamp,
+          (unsigned int)((f.type == kFrameTypeAudio ? lastAudioTimestamp_ : lastVideoTimestamp_) * 1000),
           (f.type == kFrameTypeAudio ? @"audio" : @"video"));
     // lastTimestamp_ = f.timestamp + tsOffset;
     if (f.type == kFrameTypeAudio) {
-      [flvWriter_ writeAudioPacket:chunk timestamp:(unsigned long)(lastTimestamp_ * 1000)];
+      [flvWriter_ writeAudioPacket:chunk timestamp:(unsigned long)(lastAudioTimestamp_ * 1000)];
     } else if (f.type == kFrameTypeVideo) {
-      [flvWriter_ writeVideoPacket:chunk timestamp:(unsigned long)(lastTimestamp_ * 1000) keyFrame:f.keyFrame];
+      [flvWriter_ writeVideoPacket:chunk timestamp:(unsigned long)(lastVideoTimestamp_ * 1000) keyFrame:f.keyFrame];
     }
-    lastTimestamp_ = f.timestamp + tsOffset;
   }
-  
-  // lastTimestamp_ += 0.01;
-  
+  /*
+  if (lastTimestamp_ > 0)
+    lastTimestamp_ -= 0.01;
+  */
   // [outputFileHandle seekToEndOfFile];
   [outputFileHandle writeData:flvWriter_.packet];
   // [buffer_ appendData:flvWriter_.packet];
