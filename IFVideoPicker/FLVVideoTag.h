@@ -15,5 +15,6 @@
 @property (atomic, assign) int codecId;
 @property (atomic, assign) int packetType;
 @property (atomic, retain) NSData *body;
+@property (atomic, assign) int cts;
 
 @end

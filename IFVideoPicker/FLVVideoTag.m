@@ -15,6 +15,7 @@
 @synthesize codecId;
 @synthesize frameType;
 @synthesize body;
+@synthesize cts;
 
 - (id)init {
   self = [super init];
@@ -24,6 +25,7 @@
     frameType = FLV_FRAME_INTER;
     self.dataType = kFLVTagTypeVideo;
     self.flagsSize = 5;
+    self.cts = 0;
   }
   return self;
 }

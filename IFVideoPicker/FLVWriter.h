@@ -19,7 +19,9 @@
 - (void)writeHeader;
 - (void)writeTag:(FLVTag *)tag;
 - (void)writeMetaTag:(FLVMetadata *)metaTag;
-- (void)writeVideoPacket:(NSData *)data timestamp:(unsigned long)timestamp keyFrame:(BOOL)keyFrame;
+- (void)writeVideoPacket:(NSData *)data timestamp:(unsigned long)timestamp
+                keyFrame:(BOOL)keyFrame
+     compositeTimeOffset:(int)compositeTimeOffset;
 - (void)writeAudioPacket:(NSData *)data timestamp:(unsigned long)timestamp;
 - (void)writeAudioDecoderConfRecord:(NSData *)decoderBytes;
 - (void)writeVideoDecoderConfRecord:(NSData *)decoderBytes;

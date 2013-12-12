@@ -126,7 +126,7 @@ static const int kFlvTagHeaderLength = 11;
           metaTag.videoCodecId == kFLVCodecIdH264) {
         FLVVideoTag *video = (FLVVideoTag *)tag;
         [buf putInt8:video.packetType];  // AVC NALU
-        [buf putInt24:0]; // pts - dts
+        [buf putInt24:video.cts]; // pts - dts
       } else if (tag.dataType == kFLVTagTypeAudio &&
                  metaTag.audioCodecId == kFLVCodecIdAAC) {
         // If aac body size is less than 3, we assume it is
@@ -216,16 +216,21 @@ static const int kFlvTagHeaderLength = 11;
   [tag release];
 }
 
-- (void)writeVideoPacket:(NSData *)data timestamp:(unsigned long)timestamp keyFrame:(BOOL)keyFrame {
+- (void)writeVideoPacket:(NSData *)data
+               timestamp:(unsigned long)timestamp
+                keyFrame:(BOOL)keyFrame
+     compositeTimeOffset:(int)compositeTimeOffset {
   FLVVideoTag *tag = [[FLVVideoTag alloc] init];
   tag.timestamp = timestamp;
   tag.previuosTagSize = previousTagSize_;
   tag.body = data;
   tag.bodySize = [data length];
+  tag.cts = 0;
   
   // If frame type is seekable we need to modify frame type in video tag.
   if (((Byte)(*((char *)[data bytes] + 4))) == 0x06 || keyFrame) {
     tag.frameType = FLV_FRAME_KEY;
+    tag.cts = compositeTimeOffset;
   }
       
   tag.bitflags = 0;

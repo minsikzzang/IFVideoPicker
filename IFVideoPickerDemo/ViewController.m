@@ -19,7 +19,6 @@
   BOOL flvMetadataSent_;
   FLVWriter *flvWriter_;
   double lastVideoTimestamp_;
-  double lastAudioTimestamp_;
   NSMutableData *buffer_;
 }
 
@@ -92,29 +91,34 @@
 
 - (void)captureHandleByCompletedMP4Frames:(NSArray *)frames
                                    buffer:(NSData *)buffer {
-  double tsVideoOffset = lastVideoTimestamp_;
-  double tsAudioOffset = lastAudioTimestamp_;
+  double tsOffset = lastVideoTimestamp_;
+  double timestamp = 0;
+  double lastVideoTimestamp;
   
   for (MP4Frame *f in frames) {
-    if (f.type == kFrameTypeAudio) {
-      lastAudioTimestamp_ = f.timestamp + tsAudioOffset;
-    } else if (f.type == kFrameTypeVideo) {
-      lastVideoTimestamp_ = f.timestamp + tsVideoOffset;
+    if (f.type == kFrameTypeVideo) {
+      lastVideoTimestamp = f.timestamp;
     }
     
+    timestamp = tsOffset + f.timestamp;
     NSData *chunk = [NSData dataWithBytes:(char *)[buffer bytes] + f.offset
                                    length:f.size];
     NSLog(@"captureHandleByCompletedMP4Frames: timestampFromFrame: %f, timestamp: %u, type: %@",
           f.timestamp,
-          (unsigned int)((f.type == kFrameTypeAudio ? lastAudioTimestamp_ : lastVideoTimestamp_) * 1000),
+          (unsigned int)(timestamp * 1000),
           (f.type == kFrameTypeAudio ? @"audio" : @"video"));
     // lastTimestamp_ = f.timestamp + tsOffset;
     if (f.type == kFrameTypeAudio) {
-      [flvWriter_ writeAudioPacket:chunk timestamp:(unsigned long)(lastAudioTimestamp_ * 1000)];
+      [flvWriter_ writeAudioPacket:chunk timestamp:(unsigned long)(timestamp * 1000)];
     } else if (f.type == kFrameTypeVideo) {
-      [flvWriter_ writeVideoPacket:chunk timestamp:(unsigned long)(lastVideoTimestamp_ * 1000) keyFrame:f.keyFrame];
+      [flvWriter_ writeVideoPacket:chunk
+                         timestamp:(unsigned long)(timestamp * 1000)
+                          keyFrame:f.keyFrame
+               compositeTimeOffset:f.timeOffset];
     }
   }
+  
+  lastVideoTimestamp_ += lastVideoTimestamp;
   /*
   if (lastTimestamp_ > 0)
     lastTimestamp_ -= 0.01;
